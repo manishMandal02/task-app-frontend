@@ -1,0 +1,199 @@
+.Container {
+    flex: 1;
+    background-color: 'red';
+    width: '100%';
+    height: 300;
+}
+/* .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 25;
+  }
+  .text{
+    font-size: 16;
+    font-weight: bold;
+    height: 25;
+  } */
+
+  .app {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-color: #f8f9fd;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    height: 50px;
+    border-radius: 15px;
+    background-color: #262A35;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-left:15px;
+    color: #f8f9fd;
+  }
+  
+  button[type="submit"] {
+    flex-direction: row;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    width: '100%';
+    height: 55px;
+  }
+  button[type="button"] {
+    flex-direction: row;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: #4F86EC;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    width: '100%';
+    height: 55px;
+  }
+
+  .button-container #btn-google{
+    background-color: #4F86EC !important;
+  }
+  .messages{
+    display: flex;
+    justify-content: center;
+    /* border-radius: 5px;
+    border: 2px #181820;
+    width: auto;
+    height: 55px;
+    background: #8c92a3;
+    background: transparent ; */
+    /* position: absolute; */
+  }
+  .error{
+    display: block;
+    /* background-color: red; */
+    color: white;
+    width: fit-content;
+    height: 50px;
+    padding: 5px;
+  }
+   
+  .success{
+    display: block;
+    background-color: lightblue;
+    color: black;
+    width: fit-content;
+    height: 50px;
+    padding: 5px;
+  }
+  
+  button[type="submit"]:hover {
+    background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+
+  }
+   #btn-google {
+    position: relative;
+    background-color: #4F86EC;
+
+   }
+   
+   img{
+    flex-direction: column-reverse;
+    width:20px;
+    height: 20px;
+    position: absolute;
+    background-color: #f8f9fd;
+    padding: 17px;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+
+  }
+  .form{
+    margin-top: 160x;
+  }
+  #google-btn #google-logo{
+    position: absolute;
+    background-color: #181820;
+
+  }
+  
+  .login-form {
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .list-container {
+    display: flex;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .title {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+  .divider-log{
+    flex-direction: column !important;
+    top: 65x;
+    background-color: brown;
+  }
+  .input-container > p{
+    gap: 2px;
+    margin: 0px;
+    background-color: 'red';
+  }
+  
+  .first-dive > p{
+    padding-left: 210px;
+    margin-bottom: 40px;
+    color :#494949;
+    font-weight: bold;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 35px;
+  }
+  @media only screen and (max-width: 600px) {
+    body {
+        color: #f8f9fd;
+      background-color: #181820;
+    }
+    /* .input[type="submit"] {
+        margin-top: 10px;
+        cursor: pointer;
+        font-size: 15px;
+        background: #01d28e;
+        border: 2px solid #01d28e;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 25px;
+        width: 200x;
+      } */
+      /* .divider-log{
+        margin-top: 65x;
+        background-color: brown;
+      } */
+  }
