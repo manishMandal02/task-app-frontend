@@ -42,6 +42,7 @@
     flex-direction: row;
     margin-top: 10px;
     cursor: pointer;
+    font-family: "Lucida Console", "Courier New", monospace;
     font-size: 15px;
     background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
     border: none;
@@ -57,6 +58,7 @@
     cursor: pointer;
     font-size: 15px;
     background-color: #4F86EC;
+    font-family: "Lucida Console", "Courier New", monospace;
     border: none;
     color: #fff;
     padding: 10px 20px;
@@ -68,6 +70,8 @@
   .button-container #btn-google{
     background-color: #4F86EC !important;
   }
+  h2,h3{font-family: "Lucida Console", "Courier New", monospace;}
+  p{font-family: "Lucida Console", "Courier New", monospace;}
   .messages{
     display: flex;
     justify-content: center;
@@ -124,9 +128,7 @@
     border-radius: 50%;
 
   }
-  .form{
-    margin-top: 160x;
-  }
+ 
   #google-btn #google-logo{
     position: absolute;
     background-color: #181820;
@@ -163,9 +165,9 @@
     background-color: 'red';
   }
   
-  .first-dive > p{
-    padding-left: 210px;
-    margin-bottom: 40px;
+ #forgotPas{
+    padding-left: 150px;
+    padding-bottom: 10px;
     color :#494949;
     font-weight: bold;
   }
@@ -173,7 +175,7 @@
   .input-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     margin: 35px;
   }
   @media only screen and (max-width: 600px) {

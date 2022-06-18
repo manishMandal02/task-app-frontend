@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import Logo from "../Logo";
+import axios from "axios";
 const styles = [];
 
 const SignUp = () => {
@@ -44,56 +45,65 @@ const SignUp = () => {
   };
 
   // Handling the form submission
-  const handleSubmit = (e) => {
-    console.warn("data", e);
+  const handleSubmit = async (e) => {
+    // console.warn("data", e);
     e.preventDefault();
-    if(password !== cPassword){
-        return(
-            <>
-        <h1
-          style={{
-            // backgroundColor: "white",
-            // backgroundColor: "transparent",
-            borderColor: "white",
-            border: 2,
-            padding: 10,
-          }}
-        >
-          <span
-            style={{
-              backgroundColor: "red",
-              borderRadius: "100%",
-              width: "auto",
-              height: 80,
-              padding: 5,
-              color: "white",
-            }}
-          >
-            !
-          </span>{" "}
-          Password don't match
-        </h1>
-        
-        </>
-        )
-    }else{
-    if (
-      fName === "" ||
-      lName === "" ||
-      email === "" ||
-      password === "" ||
-      cPassword === ""
-    ) {
-      setError(true);
-    } else {
-      setSubmitted(true);
-      setError(false);
-    }
-}
+    // if (password !== cPassword) {
+    //   return (
+    //     <>
+    //       <h1
+    //         style={{
+    //           // backgroundColor: "white",
+    //           // backgroundColor: "transparent",
+    //           borderColor: "white",
+    //           border: 2,
+    //           padding: 10,
+    //         }}
+    //       >
+    //         <span
+    //           style={{
+    //             backgroundColor: "red",
+    //             borderRadius: "100%",
+    //             width: "auto",
+    //             height: 80,
+    //             padding: 5,
+    //             color: "white",
+    //           }}
+    //         >
+    //           !
+    //         </span>{" "}
+    //         Password don't match
+    //       </h1>
+    //     </>
+    //   );
+    // } else {
+      if (
+        fName === "" ||
+        lName === "" ||
+        email === "" ||
+        password === "" ||
+        cPassword === ""
+      ) {
+        setError(true);
+      } else {
+        let data = {
+          firstName: fName,
+          lastName: lName,
+          email: email,
+          password: password,
+        };
+        console.warn("dta", data);
+        console.warn("/api/auth");
+        await axios.post("/api/auth", data);
+        setSubmitted(true);
+        setError(false);
+      }
+    // }
   };
 
   // Showing success message
   const successMessage = () => {
+    // console.warn("success");
     return (
       <div
         className="success"
@@ -101,7 +111,8 @@ const SignUp = () => {
           display: submitted ? "" : "none",
         }}
       >
-        <h1>User {fName} successfully registered!!</h1>
+        
+        {/* <h1>User {fName} successfully registered!!</h1> */}
       </div>
     );
   };
@@ -147,9 +158,9 @@ const SignUp = () => {
       {/* Calling to the methods */}
       <div className="messages">
         {errorMessage()}
-        {successMessage()}
+        {/* {successMessage()} */}
       </div>
-      <h2>Create new Account</h2>
+      <h2 style={{paddingTop:10}}>Create new Account</h2>
       <p id="" style={{ color: "#494949", fontWeight: "bold" }}>
         Please fill in the form to continue
       </p>
@@ -169,7 +180,7 @@ const SignUp = () => {
             value={lName}
             type="text"
             name="ulname"
-            placeholder="Second Name"
+            placeholder="Last Name"
             required
           />
           <input
@@ -188,14 +199,14 @@ const SignUp = () => {
             placeholder="Password"
             required
           />
-          <input
+          {/* <input
             onChange={handleCPassword}
             value={cPassword}
             type="text"
             name="cPassword"
             placeholder="Confirm Password"
             required
-          />
+          /> */}
         </div>
       </div>
 
@@ -203,9 +214,7 @@ const SignUp = () => {
         <button onClick={handleSubmit} type="submit">
           Register
         </button>
-
         <p style={{ color: "#494949", fontWeight: "bold" }}>or</p>
-
         <button id="btn-google" type="button">
           <span id="google-logo">
             <img
@@ -216,7 +225,8 @@ const SignUp = () => {
           Sign In with Google
         </button>
         <p style={{ color: "white", fontWeight: "" }}>
-          have an account{" "}
+          have an account
+          ? {"  "}
           <span style={{ color: "#4F86EC", fontSize: 20 }}>Login</span>
         </p>
       </div>
