@@ -7,7 +7,7 @@ import Login from './components/features/auth/login/Login';
 import SignUp from './components/features/auth/login/SignUp';
 
 const Routing = () => {
-  const user = false;
+  const user = true;
   if (user) {
     return useRoutes([
       {
