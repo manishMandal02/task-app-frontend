@@ -6,7 +6,7 @@ import HomePage from './components/features/homePage';
 import Login from './components/features/auth/Login';
 import SignUp from './components/features/auth/SignUp';
 import { UserContext } from './context/userContext';
-
+import Layout from './components/ui/Layout';
 
 const Routing = () => {
   const user = true;
@@ -32,12 +32,11 @@ const Routing = () => {
       {
         path: '/',
         element: <Login />,
-    
       },
       {
         path: '/register',
-        element: <SignUp />
-      }
+        element: <SignUp />,
+      },
     ]);
   }
 };
