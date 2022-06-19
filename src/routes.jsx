@@ -9,44 +9,24 @@ import { UserContext } from './context/userContext';
 
 
 const Routing = () => {
-  const { user } = useContext(UserContext);
-  
-  if (user.token) {
-    return useRoutes([
-      {
-        path: '/',
-        element: <HomePage />,
-      },
-      {
-        path: 'project/:id',
-        element: <ProjectPage />,
-      }
-    ]);
-// import Login from './components/features/auth/login/Login';
-// import SignUp from './components/features/auth/login/SignUp';
-// import Layout from './components/ui/Layout';
-
-// const Routing = () => {
-//   const user = true;
-//   if (user) {
-//     return (
-//       <>
-//         <Layout>
-//           {useRoutes([
-//             {
-//               path: '/',
-//               element: <HomePage />,
-//               children: [
-//                 {
-//                   path: 'project/:id',
-//                   element: <ProjectPage />,
-//                 },
-//               ],
-//             },
-//           ])}
-//         </Layout>
-//       </>
-//     );
+  const user = true;
+  if (user) {
+    return (
+      <>
+        <Layout>
+          {useRoutes([
+            {
+              path: '/',
+              element: <HomePage />,
+            },
+            {
+              path: 'project/:id',
+              element: <ProjectPage />,
+            },
+          ])}
+        </Layout>
+      </>
+    );
   } else {
     return useRoutes([
       {
