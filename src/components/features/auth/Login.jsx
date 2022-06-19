@@ -164,7 +164,7 @@ const Login = () => {
         </button>
         <p style={{ color: "white", fontWeight: "" }}>
           Don't have an account ?{" "}
-          <span style={{ color: "#4F86EC" }}><Link to='/register'>Register</Link></span>
+          <span style={{ color: "#4F86EC", fontSize: 20 }}><Link to='/register'>Register</Link></span>
         </p>
       </div>
     </div>
