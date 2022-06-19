@@ -68,7 +68,7 @@
   }
 
   .button-container #btn-google{
-    background-color: #4F86EC !important;
+    /* background-color: #4F86EC !important; */
   }
   h2,h3{font-family: "Lucida Console", "Courier New", monospace;}
   p{font-family: "Lucida Console", "Courier New", monospace;}
@@ -115,18 +115,23 @@
     background-color: #4F86EC;
 
    }
-   
-   img{
-    flex-direction: column-reverse;
+   /* #google-logo{
+    padding: 40px;
     width:20px;
     height: 20px;
+    background-color: #181820;
+   } */
+   
+  #google-logo  > img{
+    flex-direction: column-reverse;
+    width:25px;
+    height: 25px;
     position: absolute;
     background-color: #f8f9fd;
-    padding: 17px;
+    margin: 15px;
     top: 0;
     left: 0;
     border-radius: 50%;
-
   }
  
   #google-btn #google-logo{

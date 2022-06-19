@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
-import Logo from "../Logo";
+import Logo from "./Logo";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../../context/userContext";
+
 const styles = [];
 
 const SignUp = () => {
@@ -11,6 +14,8 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
+
+  const { setUser } = useContext(UserContext);
 
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
@@ -46,64 +51,42 @@ const SignUp = () => {
 
   // Handling the form submission
   const handleSubmit = async (e) => {
-    // console.warn("data", e);
     e.preventDefault();
-    // if (password !== cPassword) {
-    //   return (
-    //     <>
-    //       <h1
-    //         style={{
-    //           // backgroundColor: "white",
-    //           // backgroundColor: "transparent",
-    //           borderColor: "white",
-    //           border: 2,
-    //           padding: 10,
-    //         }}
-    //       >
-    //         <span
-    //           style={{
-    //             backgroundColor: "red",
-    //             borderRadius: "100%",
-    //             width: "auto",
-    //             height: 80,
-    //             padding: 5,
-    //             color: "white",
-    //           }}
-    //         >
-    //           !
-    //         </span>{" "}
-    //         Password don't match
-    //       </h1>
-    //     </>
-    //   );
-    // } else {
-      if (
-        fName === "" ||
-        lName === "" ||
-        email === "" ||
-        password === "" ||
-        cPassword === ""
-      ) {
-        setError(true);
-      } else {
-        let data = {
-          firstName: fName,
-          lastName: lName,
-          email: email,
-          password: password,
-        };
-        console.warn("dta", data);
-        console.warn("/api/auth");
-        await axios.post("/api/auth", data);
-        setSubmitted(true);
-        setError(false);
+    if (
+      fName === "" ||
+      lName === "" ||
+      email === "" ||
+      password === "" 
+    ) {
+      setError(true);
+    } else {
+      let data = {
+        firstName: fName,
+        lastName: lName,
+        email: email,
+        password: password,
+      };
+      try {
+        const  {data: dataSource}  = await axios.post("/api/auth", data);
+        console.warn("dataSource",dataSource)
+        setUser({
+          firstName: dataSource.firstName,
+          lastName: dataSource.lastName,
+          email: dataSource.email,
+          token: dataSource.token,
+        });
+        
+      } catch (error) {
+        alert(error)
       }
+      setSubmitted(true);
+      setError(false);
+    }
     // }
   };
 
   // Showing success message
   const successMessage = () => {
-    // console.warn("success");
     return (
       <div
         className="success"
@@ -111,8 +94,7 @@ const SignUp = () => {
           display: submitted ? "" : "none",
         }}
       >
-        
-        {/* <h1>User {fName} successfully registered!!</h1> */}
+        <h1>User {fName} successfully registered!!</h1>
       </div>
     );
   };
@@ -158,9 +140,9 @@ const SignUp = () => {
       {/* Calling to the methods */}
       <div className="messages">
         {errorMessage()}
-        {/* {successMessage()} */}
+        {successMessage()}
       </div>
-      <h2 style={{paddingTop:10}}>Create new Account</h2>
+      <h2 style={{ paddingTop: 10 }}>Create new Account</h2>
       <p id="" style={{ color: "#494949", fontWeight: "bold" }}>
         Please fill in the form to continue
       </p>
@@ -199,14 +181,6 @@ const SignUp = () => {
             placeholder="Password"
             required
           />
-          {/* <input
-            onChange={handleCPassword}
-            value={cPassword}
-            type="text"
-            name="cPassword"
-            placeholder="Confirm Password"
-            required
-          /> */}
         </div>
       </div>
 
@@ -225,9 +199,8 @@ const SignUp = () => {
           Sign In with Google
         </button>
         <p style={{ color: "white", fontWeight: "" }}>
-          have an account
-          ? {"  "}
-          <span style={{ color: "#4F86EC", fontSize: 20 }}>Login</span>
+          have an account ? {"  "}
+          <span style={{ color: "#4F86EC", fontSize: 20 }}><Link to='/'>Login</Link></span>
         </p>
       </div>
     </div>

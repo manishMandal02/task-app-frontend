@@ -7,7 +7,7 @@ export const UserContext = createContext({
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState({ firstName: '', lastName: '', email: '', profilePic: '' });
-
+console.warn('user',user)
   useEffect(() => {
     setUser('Manish Mandal');
   }, []);

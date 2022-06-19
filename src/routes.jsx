@@ -1,38 +1,38 @@
 import { useRoutes } from 'react-router-dom';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import ProjectPage from './components/features/projectPage';
 import HomePage from './components/features/homePage';
-import Login from './components/features/auth/login/Login';
-import SignUp from './components/features/auth/login/SignUp';
+import Login from './components/features/auth/Login';
+import SignUp from './components/features/auth/SignUp';
+import { UserContext } from './context/userContext';
+
 
 const Routing = () => {
-  const user = true;
-  if (user) {
+  const { user } = useContext(UserContext);
+  
+  if (user.token) {
     return useRoutes([
       {
         path: '/',
         element: <HomePage />,
-        children: [
-          {
-            path: 'project/:id',
-            element: <ProjectPage />,
-          },
-        ],
       },
+      {
+        path: 'project/:id',
+        element: <ProjectPage />,
+      }
     ]);
   } else {
     return useRoutes([
       {
         path: '/',
         element: <Login />,
-        children: [
-          {
-            path: 'register',
-            element: <SignUp />,
-          },
-        ],
+    
       },
+      {
+        path: '/register',
+        element: <SignUp />
+      }
     ]);
   }
 };
